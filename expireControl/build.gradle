@@ -1,0 +1,32 @@
+group 'com.sunls'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+/*
+task createJavaProject << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs()}
+}
+
+task createWebProject(dependsOn: 'createJavaProject') << {
+    def webAppDir = file("$webAppDirName")
+    webAppDir.mkdirs()
+}
+*/
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies {
+    compile(
+            'org.slf4j:slf4j-api:1.7.25',
+            'ch.qos.logback:logback-classic:1.2.3',
+            'redis.clients:jedis:2.9.0',
+            'org.springframework:spring-context:4.3.14.RELEASE',
+            'org.springframework.data:spring-data-redis:1.8.9.RELEASE',
+            'com.alibaba:fastjson:1.2.44'
+    )
+}
